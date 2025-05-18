@@ -1,0 +1,149 @@
+#quiz-container {
+  margin-bottom: 20px;
+  font-size: 24px;
+  margin-right: 20px; /* Thêm lề phải để tránh chồng lấn với #question-nav */
+}
+#question-nav {
+  position: fixed;
+  right: 50px; /* Giảm khoảng cách để gọn hơn */
+  top: 300px; /* Đẩy lên để tránh chắn nội dung */
+  width: 380px; /* Kích thước cố định cho 5 cột, mỗi cột ~60px + gap */
+  max-height: 70vh; /* Giảm chiều cao tối đa để tránh tràn */
+  display: grid;
+  grid-template-columns: repeat(5, 55px); /* Cố định chiều rộng mỗi cột */
+  gap: 8px; /* Giảm khoảng cách giữa các nút */
+  overflow-y: auto;
+  z-index: 100; /* Đảm bảo nằm trên nội dung khác */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.nav-btn {
+  width: 50px;
+  height: 50px;
+  min-width: 60px; /* Ngăn thu nhỏ khi zoom */
+  min-height: 60px; /* Ngăn thu nhỏ khi zoom */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px; /* Giảm nhẹ để gọn hơn */
+  transition: background-color 0.3s;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.nav-btn.answered {
+  background-color: green;
+  color: white;
+}
+
+.nav-btn.incorrect {
+  background-color: red;
+  color: white;
+}
+
+.nav-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.nav-btn.answered:hover {
+  background-color: darkgreen;
+}
+
+.nav-btn.incorrect:hover {
+  background-color: darkred;
+}
+
+.nav-btn .status {
+  font-size: 12px;
+  margin-top: 5px;
+}
+.question-block {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.question {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.choices-container {
+  margin-left: 20px;
+}
+
+.choice {
+  margin: 5px 0;
+}
+
+.choice input[type="radio"] {
+  margin-right: 10px;
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.correct {
+  background-color: #e0ffe0;
+  border-left: 4px solid #4caf50;
+  padding: 5px;
+}
+
+.incorrect {
+  background-color: #ffe0e0;
+  border-left: 4px solid #ff4444;
+  padding: 5px;
+}
+
+#result {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: green;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.button-group {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.button-group button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submitBtn {
+  background: linear-gradient(
+    90deg,
+    #2196f3,
+    #42a5f5
+  ); /* Gradient xanh dương */
+  color: white;
+  cursor: pointer;
+  font-size: 24px; /* Tăng cỡ chữ */
+  padding: 15px 30px; /* Tăng kích thước nút */
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3); /* Bóng đổ nhẹ */
+  text-transform: uppercase; /* Chữ in hoa */
+  letter-spacing: 1px; /* Khoảng cách chữ */
+  transition: all 0.3s ease; /* Hiệu ứng mượt */
+}
+
+#submitBtn:hover {
+  background: linear-gradient(90deg, #1976d2, #2196f3); /* Gradient sáng hơn */
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.5); /* Tăng bóng đổ */
+  transform: translateY(-2px); /* Nhấc nút lên */
+}
